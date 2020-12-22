@@ -10,7 +10,7 @@ We present a model which eliminates the time-consuming and the tedious work of m
    sklearn  
    Tensorflow  
    Keras  
-   Pillow
+   Pillow  
    OpenCV
 
 # Running Code #
