@@ -6,14 +6,19 @@ from tensorflow.keras.preprocessing import image
 import time
 import os
 
+## Use OpenCV to capture photos
 try:
 	cap=cv2.VideoCapture(0)
 except:
 	print("Can't open Camera. Camera engaged or not available.")
 
-model=load_model('vgg_predictions.h5')
+## Load model
+model=load_model('../models/vgg_predictions.h5')
+
+## Load face cascade using Haar Cascade Classifier to detect face frames
 face_cascade = cv2.CascadeClassifier('haar_face.xml')
 
+## Pre-process captured image
 while(1):
 	ret, frame=cap.read()
 	frame=cv2.flip(frame, 1)
@@ -26,14 +31,20 @@ while(1):
 		roi=frame[x:x+w, y:y+h]
 		cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)
 
-	# img=cv2.cvtColor(roi, cv2.COLOR_GRAY2RGB)
+	## Resize image to training image size
 	img=cv2.resize(roi, (48, 48))
 	x=image.img_to_array(img)
 	x=np.expand_dims(x, axis=0)
 	x=x/255
 	images=np.vstack([x])
+
+	## Predict class probabilities
 	arr=model.predict(images)
+
+	## Take the Max probable class 
 	gesture=np.argmax(arr)
+
+	## Class dictionary
 	dictionary={
 	    0: 'angry',
 	    1: 'happy',
@@ -42,8 +53,10 @@ while(1):
 	    4: 'surprise'
 	}
 
+	## Predict class
 	answer=dictionary[gesture]
 
+	## Play song corresponding to the predicted class
 	k = cv2.waitKey(5) & 0xFF
 	if(answer=="happy" and k==32):
 		os.system("open -a Safari https://www.youtube.com/watch?v=WsptdUFthWI")
@@ -59,15 +72,14 @@ while(1):
 
 	if(answer=="neutral" and k==32):
 		os.system("open -a Safari https://www.youtube.com/watch?v=16v2eojZ_l8")
+ 
 
-			# cv2.rectangle(frame,(c1, r1),(c2, r2),(0,255,0),0) 
-
+	## Front camera open
 	font=cv2.FONT_HERSHEY_SIMPLEX
 	cv2.putText(frame, answer, (50, 50), font, 1, (0, 255, 255), 2, cv2.LINE_4)
 	cv2.imshow('frame',frame)
 	cv2.imshow('roi', roi)
 
-		# cv2.imshow('frame',frame)
 
 	if k == 27:
 		break
