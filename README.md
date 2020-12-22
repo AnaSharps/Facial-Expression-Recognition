@@ -11,6 +11,7 @@ We present a model which eliminates the time-consuming and the tedious work of m
    Tensorflow  
    Keras  
    Pillow
+   OpenCV
 
 # Running Code #
 1. To download the dependencies run the following code in terminal: 
