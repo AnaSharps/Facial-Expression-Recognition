@@ -20,9 +20,9 @@ We present a model which eliminates the time-consuming and the tedious work of m
 2. Now test facial expressions using various models:  
   a. Using CNN: run CNN/main.py  
  b. Using ResNet-50:   
-    -- Download trained model from [here](https://drive.google.com/file/d/1KJhlFYyLkwaUypJg35xIFbZS2B0meGDq/view?usp=sharing) in models directory  
-    -- run ```python ResNet50/resnet.py```   
+      -- Download trained model from [here](https://drive.google.com/file/d/1KJhlFYyLkwaUypJg35xIFbZS2B0meGDq/view?usp=sharing) in models directory  
+      -- run ```python ResNet50/resnet.py```   
   c. Using VGG16:   
-    -- Download trained model from [here](https://drive.google.com/file/d/1S5SvTpzJTCW29hNy2HEn0XWaEQsvo-Nh/view?usp=sharing) in models directory   
-    -- run ```python VGG16/vgg_test.py```    
+      -- Download trained model from [here](https://drive.google.com/file/d/1S5SvTpzJTCW29hNy2HEn0XWaEQsvo-Nh/view?usp=sharing) in models directory   
+      -- run ```python VGG16/vgg_test.py```    
   d. Using pseudo-labeling: run Pseudo_Labeling/pseudo_test.py  
