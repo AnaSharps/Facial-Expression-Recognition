@@ -1,5 +1,3 @@
-# Facial-Expression-Recognition
-
 # Introduction #
 People tend to listen to music based on their mood and interests. Studies have shown that music has a direct effect on moods of humans.   
 The human face acts as the main indicator for the behavioral and the emotional state of the individual. Facial expression can be recognized to detect the mood of a person.  
